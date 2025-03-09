@@ -1,21 +1,3 @@
-# import requests
-# from langchain_community.document_loaders import WebBaseLoader
-
-# # Function to load data from the URL
-# def load_data(url):
-#     try:
-#         loader = WebBaseLoader(url, headers={"User-Agent": "Mozilla/5.0"})
-#         documents = loader.load()
-#         return documents
-#     except Exception as e:
-#         print(f"Error loading data: {e}")
-#         return []
-
-# if __name__ == "__main__":
-#     url = "https://brainlox.com/courses/category/technical"
-#     docs = load_data(url)
-#     print(f"Loaded {len(docs)} documents")
-
 
 import requests
 from langchain_community.document_loaders import WebBaseLoader
@@ -36,4 +18,3 @@ if __name__ == "__main__":
     url = "https://brainlox.com/courses/category/technical"
     docs = load_data(url)
     print(f"Loaded {len(docs)} documents")
-    
