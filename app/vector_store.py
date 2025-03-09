@@ -1,7 +1,7 @@
-from sentence_transformers import SentenceTransformer
+
 from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
 
@@ -25,7 +25,7 @@ def create_vector_store(url):
     # Wrap the SentenceTransformer model in HuggingFaceEmbeddings
     embedding = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
 
-    # Now this will work — embedding is the right object
+    
     vector_store = FAISS.from_texts(
         texts=texts_content,
         embedding=embedding
