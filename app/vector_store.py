@@ -1,8 +1,14 @@
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 import os
+import sys
+import os
+print(os.getenv("OPENAI_API_KEY"))
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from app.data_loader import load_data
 
 # Function to create and store embeddings
@@ -24,3 +30,5 @@ def create_vector_store(url):
 if __name__ == "__main__":
     url = "https://brainlox.com/courses/category/technical"
     create_vector_store(url)
+
+
