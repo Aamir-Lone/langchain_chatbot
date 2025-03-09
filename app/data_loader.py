@@ -18,4 +18,3 @@ if __name__ == "__main__":
     url = "https://brainlox.com/courses/category/technical"
     docs = load_data(url)
     print(f"Loaded {len(docs)} documents")
-    

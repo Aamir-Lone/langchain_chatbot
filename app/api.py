@@ -1,3 +1,46 @@
+# from flask import Flask, request, jsonify
+# from langchain_community.vectorstores import FAISS
+# # from langchain.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+# from flask import Flask, request, jsonify
+
+
+# app = Flask(__name__)
+
+# # Load the FAISS vector store
+# embedding = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+# # vector_store = FAISS.load_local("faiss_index", embeddings=embedding, allow_dangerous_deserialization=True)
+
+# vector_store = FAISS.load_local("C:\\langchain_chatbot\\app\\vectorstore\\brainlox_faiss", embeddings=embedding, allow_dangerous_deserialization=True)
+# @app.route("/", methods=["GET"])
+# def home():
+#     return jsonify({"message": "Langchain chatbot API is running!"})
+
+
+# @app.route('/chat', methods=['POST'])
+# def chat():
+#     user_input = request.json.get('message')
+#     if not user_input:
+#         return jsonify({'error': 'No message provided'}), 400
+
+#     # Retrieve similar documents from the vector store
+#     docs = vector_store.similarity_search(user_input, k=3)
+
+#     # Prepare the response
+#     response = {
+#         'query': user_input,
+#         'results': [doc.page_content for doc in docs]
+#     }
+
+#     return jsonify(response)
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+
+
+#***************************************************************
+
 from flask import Flask, request, jsonify
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -6,6 +49,7 @@ app = Flask(__name__)
 
 # Load the FAISS vector store
 embedding = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+# embedding = HuggingFaceEmbeddings(model_name='sentence-transformers/all-mpnet-base-v2')
 vector_store = FAISS.load_local(
     "C:\\langchain_chatbot\\app\\vectorstore\\brainlox_faiss",
     embeddings=embedding,
